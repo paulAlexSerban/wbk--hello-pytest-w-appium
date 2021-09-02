@@ -17,7 +17,7 @@ autoinstall: start
 
 clean: down
 	@echo "💥 Removing related folders/files..."
-	@rm -rf  mysql/* wordpress/*
+	@rm -rf  mysql/* wordpress/wp-admin wordpress/wp-includes wordpress/*.php wordpress/index.php wordpress/license.txt wordpress/readme.html
 
 reset: clean
 
