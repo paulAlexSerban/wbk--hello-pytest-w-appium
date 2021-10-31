@@ -1,0 +1,20 @@
+@mixin flex-direction($direction) {
+  flex-direction: $direction;
+  -webkit-flex-direction: $direction;
+  -moz-flex-direction: $direction;
+  -ms-flex-direction: $direction;
+  -o-flex-direction: $direction;
+}
+
+/// Shorthand mixin for flex box - can be used to center content by default
+/// @param {String} $main - justify-content properties
+/// @param {String} $cross - align-item properties
+/// @param {String} $direction - flex-direction properties
+
+
+@mixin flex($main: center, $cross: center, $direction: row) {
+  @include flex-direction($direction);
+  display: flex;
+  justify-content: $main;
+  align-items: $cross;
+}

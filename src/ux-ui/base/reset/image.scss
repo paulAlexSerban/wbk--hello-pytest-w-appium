@@ -1,0 +1,12 @@
+/**
+* 1. Remove the border on images inside links in IE 10.
+* 2. Make images fluid
+*/
+
+img {
+  border-style: none; // (1)
+  ///////////////////////
+  max-width: 100%; // (2)
+  height: auto; // (2)
+}
+

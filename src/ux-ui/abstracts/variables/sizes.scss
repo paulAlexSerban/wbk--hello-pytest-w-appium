@@ -1,0 +1,15 @@
+/// Project's design system sizes
+/// @param {Size} $baseline - horizontal base spacing value
+/// @param {Size} $gutter - vertical base spacing value
+$baseline: 0.8rem;
+$gutter: 1.4rem;
+
+/// Font size
+/// @param {Size} $default-font-size - default font size
+$default-font-size: 1.6rem; 
+
+/// Container's maximum width
+/// @type Length
+$max-width: 144rem !default;
+
+$round-border: .5rem;

@@ -1,0 +1,7 @@
+@import './position.scss';
+
+@mixin pseudo ($display: block, $pos: absolute, $content: '') {
+  content: $content;
+  display: $display;
+  @include position($position: $pos);
+}

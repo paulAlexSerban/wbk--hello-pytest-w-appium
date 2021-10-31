@@ -1,0 +1,13 @@
+@import '../position.scss';
+
+/// Shorthand mixin for absolute center positioning
+/// @param {Length} $top [null] - Top offset
+/// @param {Length} $left [null] - Left offset
+/// @param {Boolean} $translated [true] - Translated position -50% top and left
+
+@mixin absCenter($left: 50%, $top: 50%, $translated: true) {
+  @include absolute($top: $top, $right: null, $bottom: null, $left: $left);
+  @if $translated {
+    transform: translate(-50%, -50%);
+  }
+}

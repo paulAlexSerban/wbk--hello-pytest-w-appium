@@ -1,0 +1,34 @@
+@import "../abstracts/abstracts.scss";
+
+// Import reset properties
+@import './reset/box-sizing.scss';
+@import './reset/fieldset.scss';
+@import './reset/font-size.scss';
+@import './reset/image.scss';
+@import './reset/line-height.scss';
+@import './reset/lists.scss';
+@import './reset/main-IE.scss';
+@import './reset/selection.scss';
+
+// Import typography styles
+@import './typography.scss';
+
+// Import utility classes
+@import './utilities.scss';
+
+// ABSTRACTS
+@import '../abstracts/abstracts.scss';
+
+body {
+  @include flex($direction: column);
+
+  background-color: $c-cultured;
+  padding: 0;
+  overflow-x: hidden;
+  position: relative;
+
+  > * {
+    width: 100%;
+    max-width: $max-width;
+  }
+}

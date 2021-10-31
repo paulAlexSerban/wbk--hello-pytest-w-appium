@@ -1,0 +1,2 @@
+# Abstracts directory - The 7-in-1 SCSS Architecture
+This subdirectory contains no actual styles, but rather just functions and mechanisms that help to define other styles (essentially your “helpers” directory).
