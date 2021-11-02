@@ -1,12 +1,13 @@
-$moduleName: 'navigation';
+$molecule: "navigation";
 
-.#{$moduleName} {
-  @include e('base') {
+.#{$molecule} {
+  @include e("base") {
     @include flex($main: space-between);
 
     width: 100%;
-    background-color: rgba($c-black, 0.3);    
     margin-left: 0;
+    background-color: rgba($c-black, .3);
+
 
     .header__base & {
       @include absolute($z-index: navigation);
@@ -17,24 +18,25 @@ $moduleName: 'navigation';
     }
   }
 
-  @include e('toggle') {
+  @include e("toggle") {
     @include flex();
-    color: $c-white;
-    height: 80px;
+
     width: 80px;
+    height: 80px;
+    color: $c-white;
 
     @media (min-width: 768px) {
       display: none;
     }
 
     svg {
-      height: 30px;
       width: 30px;
+      height: 30px;
       cursor: pointer;
     }
   }
 
-  @include e('list') {
+  @include e("list") {
     display: none !important;
 
     @media (min-width: 768px) {
@@ -42,17 +44,17 @@ $moduleName: 'navigation';
     }
   }
 
-  @include e('link') {
+  @include e("link") {
     &,
     &:link,
     &:visited {
-      text-decoration: none;
-      color: $c-white;
       font-size: 2.4rem;
+      color: $c-white;
+      text-decoration: none;
     }
 
     &:hover {
-      .#{$moduleName}__base .#{$moduleName}__list {
+      .#{$molecule}__base .#{$molecule}__list {
         color: $c-white;
       }
     }
@@ -63,7 +65,7 @@ $moduleName: 'navigation';
     }
   }
 
-  @include e('offcanvas-wrapper') {
+  @include e("offcanvas-wrapper") {
     width: 50vw;
   }
 }

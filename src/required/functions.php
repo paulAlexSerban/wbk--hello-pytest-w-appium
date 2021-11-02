@@ -5,7 +5,7 @@ function el_virtuoso() {
   wp_enqueue_script('uikit', get_theme_file_uri('/assets/scripts/uikit.script.js'), '1.0', true);
 
   wp_enqueue_style('generic-styles', get_theme_file_uri('/assets/styles/front-page.style.css'));
-  wp_enqueue_style('uikit', get_theme_file_uri('/assets/styles/uikit.style.css'));
+  wp_enqueue_style('uikit', '//cdn.jsdelivr.net/npm/uikit@3.8.0/dist/css/uikit.min.css');
 }
 
 add_action('wp_enqueue_scripts', 'el_virtuoso');

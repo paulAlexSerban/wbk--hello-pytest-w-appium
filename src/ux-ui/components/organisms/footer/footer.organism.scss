@@ -1,0 +1,7 @@
+$organism: "footer";
+
+.#{$organism} {
+  &__base {
+    border: transparent;
+  }
+}

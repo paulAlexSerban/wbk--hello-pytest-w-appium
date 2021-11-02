@@ -1,21 +1,24 @@
 #!bin/bash 
 . config/config.dev.env
-
+# REQUIRED_FILES = src/required
 function copy_required-src-to-build () {
   echo -e "${BLUE} --> [ COPY ] required files ${GREEN} "
   rsync -rv --mkpath $REQUIRED_FILES/* $WORDPRESS_THEME_TARGET/ --info=progress2
 }
 
+# TEMPLATE_FILES = src/pages  <--- should remove
 function copy_templates-src-to-build () {
   echo -e "${BLUE} --> [ COPY ] template files ${GREEN} "
   rsync -rv --mkpath $TEMPLATE_FILES/*/*.php $WORDPRESS_THEME_TARGET --info=progress2
 }
 
+# COMPONENT_FILES = src/ux-ui/components
 function copy-components-src-to-build () {
   echo -e "${BLUE} --> [ COPY ] component files ${GREEN} "
   rsync -rv --mkpath $COMPONENT_FILES/*/*/*.php $WORDPRESS_THEME_TARGET --info=progress2
 }
 
+# DISTRIBUTION_ASSETS_TO_WATCH = src/dist
 function copy_fe_assets-src-to-build () {
   echo -e "${BLUE} --> [ COPY ] assets/distribution files ${GREEN} "
   rsync -rv --mkpath $DISTRIBUTION_ASSETS_TO_WATCH/*/* $WORDPRESS_THEME_TARGET/assets --info=progress2
@@ -39,7 +42,7 @@ function copy_includes-src-to-build () {
 function pre-install () {
   echo -e "${BLUE} --> [ PRE-INSTALL ] ${GREEN} "
   npm install --prefix $SRC_DIR
-  npm run build:dev
+  npm run build
 }
 
 function install-src-to-build () {
