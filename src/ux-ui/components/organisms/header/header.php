@@ -12,7 +12,11 @@
         </a>
         <nav class="navigation__container uk-navbar-container" uk-navbar>
           <div class="navigation__wrapper uk-navbar-right">
-            <i class="navigation__toggle icon" uk-icon="menu" uk-toggle="target: #offcanvas-nav-primary"></i>
+            <span class="navigation__toggle" uk-toggle="target: #offcanvas-nav-primary">
+              <span class="navigation__toggle-line-1"></span>
+              <span class="navigation__toggle-line-2"></span>
+              <span class="navigation__toggle-line-3"></span>
+            </span>
             <ul class="navigation__list uk-navbar-nav">
               <li class="navigation__item">
                 <a class="navigation__link" href="./index.html">Home</a>

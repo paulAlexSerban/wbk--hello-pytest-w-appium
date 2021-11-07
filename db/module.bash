@@ -7,7 +7,7 @@ MAIN_BACKUP_FILE=$DATABASE_DIR/main/main.backup.sql
 # copy database to install to build
 function copy-db-bkp-to-build () {
 	echo -e "${BLUE} --> [ COPY DATABASE file to BUILD ] ${GREEN} "
-  	rsync -rv $MAIN_BACKUP_FILE $MYSQL_DIR/ --info=progress2
+  	rsync -rv --mkpath $MAIN_BACKUP_FILE $MYSQL_DIR/ --info=progress2
 }
 
 function restore-database-from-backup () {
@@ -48,7 +48,7 @@ function save-fail-safe-bkp () {
 		echo -e "${BLUE} --> [ -- START -- save-fail-safe-bkp ] ${GREEN} "
     echo " - creaticg Database fail-safe-backup "
   	if [ -f $MAIN_BACKUP_FILE ]; then 
-		rsync -rv $MAIN_BACKUP_FILE $DATABASE_DIR/backup/saved.backup.`date +%Y-%m-%d---%T`.sql --info=progress2; 
+		rsync -rv --mkpath $MAIN_BACKUP_FILE $DATABASE_DIR/backup/saved.backup.`date +%Y-%m-%d---%T`.sql --info=progress2; 
 		echo -e "${BLUE} --> [ -- SAVED -- save-fail-safe-bkp ] ${GREEN} "
 	else 
 		echo -e "${BLUE} --> [ -- NO DATABASE TO SAVE -- save-fail-safe-bkp ] ${GREEN} "

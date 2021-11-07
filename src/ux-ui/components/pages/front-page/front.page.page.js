@@ -1,5 +1,4 @@
 import './front-page.page.scss';
-import UIkit from 'uikit';
 import GenericTemplate from '../../templates/generic/generic.template';
 
 class FrontPage {
@@ -8,7 +7,6 @@ class FrontPage {
       pageTitle: 'home',
     };
     this.init();
-    UIkit.notification('Hello world.');
   }
 
   setupTemplate() {

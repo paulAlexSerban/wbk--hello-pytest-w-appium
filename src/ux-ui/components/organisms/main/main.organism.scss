@@ -1,0 +1,7 @@
+$organism: "main";
+
+.#{$organism} {
+  &__base {
+    height: 100vh;
+  }
+}

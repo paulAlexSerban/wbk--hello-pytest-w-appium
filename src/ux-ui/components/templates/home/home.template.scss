@@ -1,0 +1,9 @@
+@import "../../../abstracts/all.scss";
+// molecules
+@import "../../molecules/navigation/navigation.molecule.scss";
+
+// organisms
+@import "../../organisms/header/header.organism.scss";
+@import "../../organisms/footer/footer.organism.scss";
+@import "../../organisms/main/main.organism.scss";
+@import "../../organisms/carousel/carousel.organism.scss";

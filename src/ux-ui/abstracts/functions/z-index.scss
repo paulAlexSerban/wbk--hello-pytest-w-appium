@@ -1,6 +1,7 @@
 $z-i:
   base,
-  navigation
+  header,
+  navigation,
   modal;
 
 @function z-index($element, $list: $z-i) {
