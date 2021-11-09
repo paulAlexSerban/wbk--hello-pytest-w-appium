@@ -1,7 +1,7 @@
 <?php get_header();
 themeFiles('/front-page/', true);?>
-<main class="main__base">
-  <div class="carousel__base uk-position-relative uk-visible-toggle" tabindex="-1" uk-slideshow="animation: fade">
+<main class="main__base" data-js-component="main" data-js-page="front-page">
+  <div class="carousel__base uk-position-relative uk-visible-toggle" data-js-component="carousel" tabindex="-1" uk-slideshow="animation: fade">
     <ul class="carousel__list uk-slideshow-items">
       <li class="carousel__item">
         <div

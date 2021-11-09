@@ -1,16 +1,18 @@
 import './front-page.page.scss';
-import GenericTemplate from '../../templates/generic/generic.template';
+import HomeTemplate from '../../templates/home/home.template';
 
 class FrontPage {
-  constructor() {
+  constructor(page) {
     this.pageParams = {
-      pageTitle: 'home',
+      pageNode: page,
+      pageTitle: page.dataset.jsPage,
     };
+
     this.init();
   }
 
   setupTemplate() {
-    this.GENERIC_PAGE = new GenericTemplate(this.pageParams);
+    this.HOME_TEMPLATE = new HomeTemplate(this.pageParams);
   }
 
   init() {
@@ -18,5 +20,4 @@ class FrontPage {
   }
 }
 
-const FRONT_PAGE = new FrontPage();
-console.log(FRONT_PAGE);
+document.querySelectorAll('[data-js-page="front-page"]').forEach((page) => new FrontPage(page));

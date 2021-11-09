@@ -13,7 +13,7 @@ function copy-backed-up-assets-src-to-build () {
 
 function install () {
   echo -e "${BLUE} --> [ --- START --- INSTALL ASSETS ] uploads/assets ${GREEN}"
-  copy-backedup-assets-src-to-build
+  copy-backed-up-assets-src-to-build
   echo -e "${BLUE} --> [ --- DONE --- ASSETS INSTALL ] ${NC} "
 }
 

@@ -1,22 +1,22 @@
-import './index.page.scss';
-import GenericTemplate from '../../templates/generic/generic.template';
+// import './index.page.scss';
+// import HomeTemplate from '../../templates/home/home.template';
 
-class IndexPage {
-  constructor() {
-    this.pageParams = {
-      pageTitle: 'index',
-    };
-    this.init();
-  }
+// class IndexPage {
+//   constructor() {
+//     this.pageParams = {
+//       pageTitle: 'home',
+//     };
+//     this.init();
+//   }
 
-  setupTemplate() {
-    this.GENERIC_PAGE = new GenericTemplate(this.pageParams);
-  }
+//   setupTemplate() {
+//     this.HOME_PAGE = new HomeTemplate(this.pageParams);
+//   }
 
-  init() {
-    this.setupTemplate();
-  }
-}
+//   init() {
+//     this.setupTemplate();
+//   }
+// }
 
-const INDEX_PAGE = new IndexPage();
-console.log(INDEX_PAGE);
+// const INDEX_PAGE = new IndexPage();
+// console.log(INDEX_PAGE);

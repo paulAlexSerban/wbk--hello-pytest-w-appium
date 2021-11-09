@@ -1,6 +1,9 @@
 export default class Navigation {
-  constructor(pageParams, templateParams) {
-    this.pageParams = pageParams;
-    this.templateParams = templateParams;
+  constructor(molecule, pageParams, templateParams) {
+    this.moleculeParams = {
+      molecule,
+      templateParams,
+      pageParams,
+    };
   }
 }

@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head <?php language_attributes(); ?> >
     <?php wp_head(); ?>
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-  <header class="header__base">
+  <header class="header__base" data-js-component="header">
     <div class="header__container">
-      <div class="navigation__base">
+      <div class="navigation__base" data-js-component="navigation">
         <a class="logo__base" href="./index.html">
           <i class="logo__icon icon" uk-icon="uikit"></i>
         </a>
@@ -31,9 +33,6 @@
 
             <div class="navigation__offcanvas-container" id="offcanvas-nav-primary" uk-offcanvas="overlay: true">
               <div class="navigation__offcanvas-wrapper uk-offcanvas-bar uk-flex uk-flex-column">
-
-                <button class="uk-offcanvas-close" type="button" uk-close></button>
-
                 <ul class="navigation__offcanvas-list uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
                   <li class="navigation__item navigation__offcanvas-item">
                     <a class="navigation__link navigation__offcanvas-link" href="./index.html">Home</a>

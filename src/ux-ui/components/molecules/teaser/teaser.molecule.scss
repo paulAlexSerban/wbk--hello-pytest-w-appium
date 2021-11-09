@@ -1,0 +1,7 @@
+$molecule: "teaser";
+
+.#{$molecule} {
+  @include e("base") {
+
+  }
+}
