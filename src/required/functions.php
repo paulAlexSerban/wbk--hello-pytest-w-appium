@@ -28,6 +28,8 @@ function themeFiles($args, $hasUiKit) {
 
 function elVirtuoso_features () {
   add_theme_support('title-tag');
+  register_nav_menu('header_menu-desktop', 'Header Menu - Desktop');
+  register_nav_menu('header_menu-overlay', 'Overlay Navigation Menu - Mobile');
 }
 
 add_action('after_setup_theme', 'elVirtuoso_features');

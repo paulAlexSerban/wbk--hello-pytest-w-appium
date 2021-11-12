@@ -33,7 +33,7 @@ function copy_fe_assets-src-to-build () {
 
 function copy_must-use-plugins-src-to-build () {
   echo -e "${BLUE} --> [ COPY ] must-use plugin files ${GREEN} "
-  rsync -rv --mkpath $ROOT_DIR/src/plugins/mu-plugins $ROOT_DIR/build/wordpress/wp-content/themes/$PROJECT_NAME --info=progress2
+  rsync -rv --mkpath $ROOT_DIR/src/plugins/mu-plugins $ROOT_DIR/build/wordpress/wp-content/mu-plugins/ --info=progress2
 }
 
 function copy_plugins-src-to-build () {
@@ -97,6 +97,13 @@ function watch-dist-assets () {
   done
 }
 
+function watch-plugin () {
+  fswatch -xrv -l 2 $ROOT_DIR/src/plugins/mu-plugins/*.php | while read num event 
+  do 
+    rsync -rv --mkpath $ROOT_DIR/src/plugins/mu-plugins/*.php $ROOT_DIR/build/wordpress/wp-content/mu-plugins/ --info=progress2
+  done
+}
+
 # NOT needed after restructuring the project folder and file structure
 # function watch-template-files () {
 #   fswatch -xnr  -l 2 $TEMPLATE_FILES/*/*.php | while read num event
@@ -118,7 +125,7 @@ function run_fe_watchers () {
 }
 
 function watch-dev () {
-  watch-required-files & watch-dist-assets & watch-components
+  watch-required-files & watch-dist-assets & watch-components & watch-plugin
 }
 
 $1

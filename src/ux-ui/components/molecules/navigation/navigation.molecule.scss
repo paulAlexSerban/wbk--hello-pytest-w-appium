@@ -84,24 +84,26 @@ $molecule: "navigation";
     }
   }
 
-  @include e("link") {
-    &,
-    &:link,
-    &:visited {
-      font-size: 2.4rem;
-      color: $c-white;
-      text-decoration: none;
-    }
+  @include e("item") {
+    a {
+      &,
+      &:link,
+      &:visited {
+        font-size: 2.4rem;
+        color: $c-white;
+        text-decoration: none;
+      }
 
-    &:hover {
-      .#{$molecule}__base .#{$molecule}__list {
+      &:hover {
+        .#{$molecule}__base .#{$molecule}__list {
+          color: $c-white;
+        }
+      }
+
+      &:active,
+      &:focus {
         color: $c-white;
       }
-    }
-
-    &:active,
-    &:focus {
-      color: $c-white;
     }
   }
 
