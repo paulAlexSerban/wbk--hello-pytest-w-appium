@@ -10,3 +10,7 @@
 
 * `screenshot.png`
   - In the WordPress.org theme directory, `screenshot.png` acts as a visual indicator of what your theme looks like. It is visible both in the web view and in the admin dashboard. Note: this screenshot can be no larger than *1200x900px.*
+
+## Optional directories
+- `./themes`
+- `./vendors`
