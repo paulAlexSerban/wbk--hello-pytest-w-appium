@@ -1,7 +1,0 @@
-$molecule: "teaser";
-
-.#{$molecule} {
-  @include e("base") {
-    background-color: transparent;
-  }
-}

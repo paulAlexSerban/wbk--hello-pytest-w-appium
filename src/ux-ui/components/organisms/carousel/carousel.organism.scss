@@ -11,6 +11,10 @@ $organism: "carousel";
     height: 100%;
   }
 
+  @include e("base") {
+    height: 100vh;
+  }
+
   &__image {
     object-fit: cover;
   }

@@ -1,50 +1,36 @@
 <?php get_header();
 themeFiles('/front-page/', true);?>
 <main class="main__base" data-js-component="main" data-js-page="front-page">
-  <div class="carousel__base uk-position-relative uk-visible-toggle" data-js-component="carousel" tabindex="-1" uk-slideshow="animation: fade">
+  <div class="carousel__base uk-position-relative uk-visible-toggle" data-js-component="carousel" tabindex="-1" uk-slideshow="animation: fade; ratio: false;">
     <ul class="carousel__list uk-slideshow-items">
-      <li class="carousel__item">
-        <div
-          class="carousel__slide uk-position-cove uk-animation-reverse uk-transform-origin-center-left">
-          <img class="carousel__image" data-src="<?php echo get_theme_file_uri('../../uploads/2021/11/24MP-full-300dpiDSC_5707-HDR-1536x1024.jpg') ?>" alt="" uk-cover uk-img
-            uk-img="target: !* -*, !* +*">
-        </div>
-      </li>
-      <li class="carousel__item">
-        <div
-          class="carousel__slide uk-position-cove uk-animation-reverse uk-transform-origin-center-left">
-          <img class="carousel__image" data-src="<?php echo get_theme_file_uri('../../uploads/2021/11/24MP-full-300dpiDSC_5807-HDR-1536x1024.jpg') ?>" alt="" uk-cover uk-img
-            uk-img="target: !* -*, !* +*">
-        </div>
-      </li>
-      <li class="carousel__item">
-        <div
-          class="carousel__slide uk-position-cove uk-animation-reverse uk-transform-origin-center-left">
-          <img class="carousel__image" data-src="<?php echo get_theme_file_uri('../../uploads/2021/11/24MP-full-300dpiDSC_5853-HDR-1024x1536.jpg') ?>" alt="" uk-cover uk-img
-            uk-img="target: !* -*, !* +*">
-        </div>
-      </li>
-      <li class="carousel__item">
-        <div
-          class="carousel__slide uk-position-cove uk-animation-reverse uk-transform-origin-center-left">
-          <img class="carousel__image" data-src="<?php echo get_theme_file_uri('../../uploads/2021/11/24MP-full-300dpiDSC_5961-HDR-1536x1024.jpg') ?>" alt="" uk-cover uk-img
-            uk-img="target: !* -*, !* +*">
-        </div>
-      </li>
-      <li class="carousel__item">
-        <div
-          class="carousel__slide uk-position-cove uk-animation-reverse uk-transform-origin-center-left">
-          <img class="carousel__image" data-src="<?php echo get_theme_file_uri('../../uploads/2021/11/24MP-full-300dpiDSC_6000-HDR-Edit-1024x1536.jpg') ?>" alt="" uk-cover uk-img
-            uk-img="target: !* -*, !* +*">
-        </div>
-      </li>
-      <li class="carousel__item">
-        <div
-          class="carousel__slide uk-position-cove uk-animation-reverse uk-transform-origin-center-left">
-          <img class="carousel__image" data-src="<?php echo get_theme_file_uri('../../uploads/2021/11/20200720_7_lq-1536x1086.jpg') ?>" alt="" uk-cover uk-img
-            uk-img="target: !* -*, !* +*">
-        </div>
-      </li>
+      <?php 
+
+        if ( '' != get_post_meta( get_the_ID(), 'gallery_data', true ) ) {
+          $gallery = get_post_meta( get_the_ID(), 'gallery_data', true );
+        }
+
+        if ( isset( $gallery['image_id'] ) ) {
+          for( $i = 0; $i < count( $gallery['image_id'] ); $i++ ) {
+            if ( '' != $gallery['image_id'][$i] ) {
+                $img_src = wp_get_attachment_image_url( $gallery['image_id'][$i] );
+                $img_srcset = wp_get_attachment_image_srcset( $gallery['image_id'][$i]);
+                $img_sizes = wp_get_attachment_image_sizes($gallery['image_id'][$i], 'full');?>
+
+
+                <li class="carousel__item">
+                  <div
+                    class="carousel__slide uk-position-cove uk-animation-reverse uk-transform-origin-center-left">
+                    <img class="carousel__image" data-src="<?php echo esc_url( $img_src ); ?>" data-srcset="<?php echo esc_attr( $img_srcset ); ?>" sizes="<?php echo esc_attr( $img_sizes ); ?>" alt="" uk-cover uk-img
+                      uk-img="target: !* -*, !* +*">
+                  </div>
+                </li>
+
+
+                <?php
+            }
+          }
+        }?>
+
     </ul>
     <a class="carousel__control uk-position-center-left uk-position-small uk-hidden-hover" href="#"
       uk-slidenav-previous uk-slideshow-item="previous"></a>

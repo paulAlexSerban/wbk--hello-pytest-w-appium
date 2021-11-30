@@ -1,7 +1,0 @@
-$organism: "teaser-list";
-
-.#{$organism} {
-  @include e("base") {
-    background-color: transparent !important;
-  }
-}

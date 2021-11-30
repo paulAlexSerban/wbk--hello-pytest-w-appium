@@ -13,8 +13,8 @@ add_action( 'admin_head-post-new.php', 'print_scripts' );
 add_action( 'save_post', 'update_post_gallery', 10, 2 );
 
 // Make it work only in selected templates
-$rep_fields_templates = array('single.php');
-$rep_fields_posts     = array('post', 'event', 'professor');
+$rep_fields_templates = array('front-page.php', 'single.php');
+$rep_fields_posts     = array('post', 'home', 'page', 'work_project');
 
 /**
  * Add custom Meta Box
