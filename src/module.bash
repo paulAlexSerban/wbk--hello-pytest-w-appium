@@ -97,10 +97,17 @@ function watch-dist-assets () {
   done
 }
 
-function watch-plugin () {
+function watch-mu-plugin () {
   fswatch -xrv -l 2 $ROOT_DIR/src/plugins/mu-plugins/*.php | while read num event 
   do 
     rsync -rv --mkpath $ROOT_DIR/src/plugins/mu-plugins/*.php $ROOT_DIR/build/wordpress/wp-content/mu-plugins/ --info=progress2
+  done
+}
+
+function watch-dev-plugin () {
+    fswatch -xrv -l 2 $ROOT_DIR/src/plugins/dev-plugins/*/*.php | while read num event 
+  do 
+    rsync -rv --mkpath $ROOT_DIR/src/plugins/dev-plugins/* $ROOT_DIR/build/wordpress/wp-content/plugins/ --info=progress2
   done
 }
 
@@ -125,7 +132,7 @@ function run_fe_watchers () {
 }
 
 function watch-dev () {
-  watch-required-files & watch-dist-assets & watch-components & watch-plugin
+  watch-required-files & watch-dist-assets & watch-components & watch-mu-plugin & watch-dev-plugin
 }
 
 $1
