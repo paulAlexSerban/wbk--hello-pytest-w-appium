@@ -8,7 +8,6 @@ $molecule: "navigation";
     margin-left: 0;
     background-color: rgba($c-black, .3);
 
-
     .header__base & {
       @include absolute($z-index: navigation);
     }
@@ -85,12 +84,32 @@ $molecule: "navigation";
   }
 
   @include e("item") {
+    &:hover {
+      a {
+        color: rgba($c-white, .65) !important;
+      }
+    }
+
     a {
       &,
       &:link,
-      &:visited {
-        font-size: 2.4rem;
+      &:visited,
+      &:hover,
+      &:active,
+      &:focus {
+        font-weight: 700;
         color: $c-white;
+        text-transform: lowercase;
+
+        body:not([data-js-page="front-page"]) & {
+          color: $c-black;
+        }
+      }
+
+      &,
+      &:link,
+      &:visited {
+        font-size: 3rem;
         text-decoration: none;
       }
 
@@ -98,11 +117,6 @@ $molecule: "navigation";
         .#{$molecule}__base .#{$molecule}__list {
           color: $c-white;
         }
-      }
-
-      &:active,
-      &:focus {
-        color: $c-white;
       }
     }
   }
