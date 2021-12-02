@@ -12,13 +12,6 @@ function copy_required-src-to-build () {
   rsync -rv --mkpath $REQUIRED_FILES/* $WORDPRESS_THEME_TARGET/ --info=progress2
 }
 
-# TEMPLATE_FILES = src/pages  <--- should remove
-# NOT needed after restructuring the project folder and file structure
-# function copy_templates-src-to-build () {
-#   echo -e "${BLUE} --> [ COPY ] template files ${GREEN} "
-#   rsync -rv --mkpath $TEMPLATE_FILES/*/*.php $WORDPRESS_THEME_TARGET --info=progress2
-# }
-
 # COMPONENT_FILES = src/ux-ui/components
 function copy-components-src-to-build () {
   echo -e "${BLUE} --> [ COPY ] component files ${GREEN} "
@@ -33,7 +26,7 @@ function copy_fe_assets-src-to-build () {
 
 function copy_must-use-plugins-src-to-build () {
   echo -e "${BLUE} --> [ COPY ] must-use plugin files ${GREEN} "
-  rsync -rv --mkpath $ROOT_DIR/src/plugins/mu-plugins $ROOT_DIR/build/wordpress/wp-content/mu-plugins/ --info=progress2
+  rsync -rv --mkpath $ROOT_DIR/src/plugins/mu-plugins/* $ROOT_DIR/build/wordpress/wp-content/mu-plugins/ --info=progress2
 }
 
 function copy_plugins-src-to-build () {
@@ -104,20 +97,6 @@ function watch-mu-plugin () {
   done
 }
 
-function watch-dev-plugin () {
-    fswatch -xrv -l 2 $ROOT_DIR/src/plugins/dev-plugins/*/*.php | while read num event 
-  do 
-    rsync -rv --mkpath $ROOT_DIR/src/plugins/dev-plugins/* $ROOT_DIR/build/wordpress/wp-content/plugins/ --info=progress2
-  done
-}
-
-# NOT needed after restructuring the project folder and file structure
-# function watch-template-files () {
-#   fswatch -xnr  -l 2 $TEMPLATE_FILES/*/*.php | while read num event
-#   do 
-#     rsync -rv --mkpath $TEMPLATE_FILES/*/*.php $WORDPRESS_THEME_TARGET --info=progress2
-#   done
-# }
 
 # COMPONENT_FILES=$ROOT_DIR/src/ux-ui/components
 function watch-components () {
@@ -132,7 +111,7 @@ function run_fe_watchers () {
 }
 
 function watch-dev () {
-  watch-required-files & watch-dist-assets & watch-components & watch-mu-plugin & watch-dev-plugin
+  watch-required-files & watch-dist-assets & watch-components & watch-mu-plugin
 }
 
 $1
