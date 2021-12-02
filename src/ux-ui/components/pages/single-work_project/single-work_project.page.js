@@ -1,5 +1,5 @@
 import './single-work_project.page.scss';
-import HomeTemplate from '../../templates/home/home.template';
+import ProjectTemplate from '../../templates/project/project.template';
 
 class SingleWorkProjectPage {
   constructor(page) {
@@ -12,12 +12,11 @@ class SingleWorkProjectPage {
   }
 
   setupTemplate() {
-    this.HOME_TEMPLATE = new HomeTemplate(this.pageParams);
+    this.PROJECT_TEMPLATE = new ProjectTemplate(this.pageParams);
   }
 
   init() {
     this.setupTemplate();
-    console.log(this.pageParams);
   }
 }
 
