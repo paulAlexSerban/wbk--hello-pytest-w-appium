@@ -1,3 +1,11 @@
+<?php
+  $pageType = '';
+
+  if(is_front_page()) {
+    $pageType = 'front-page';
+  } 
+?>
+
 <!DOCTYPE html>
 <html>
   <head <?php language_attributes(); ?> >
@@ -5,7 +13,7 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-  <body>
+  <body data-js-page="<?php echo $pageType; ?>">
   <header class="header__base" data-js-component="header">
     <div class="header__container">
       <div class="navigation__base" data-js-component="navigation">
