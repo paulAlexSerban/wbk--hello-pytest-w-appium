@@ -1,8 +1,10 @@
 <?php
 function elVirtuoso_post_types() {
   register_post_type('work_project', array(
+    'supports' => array('title', 'editor', 'thumbnail'),
     'public' => true,
     'show_in_rest' => true,
+    'has_archive' => true,
     'labels' => array(
      'name' => 'Work/Project',
      'add_new_item' => 'Add new work/project',
