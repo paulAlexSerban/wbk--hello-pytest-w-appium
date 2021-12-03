@@ -6,7 +6,10 @@ $molecule: "navigation";
 
     width: 100%;
     margin-left: 0;
-    background-color: rgba($c-black, .3);
+
+    [data-js-page="front-page"] & {
+      background-color: rgba($c-black, .3);
+    }
 
     .header__base & {
       @include absolute($z-index: navigation);
@@ -92,6 +95,8 @@ $molecule: "navigation";
     }
 
     a {
+      padding: 0 $gutter !important;
+
       &,
       &:link,
       &:visited,
