@@ -13,7 +13,7 @@ $organism: "hero-carousel";
     &.uk-grid {
       margin-left: -($gutter * 3);
 
-      &>* {
+      > * {
         padding-left: $gutter * 3;
       }
     }
