@@ -1,0 +1,48 @@
+$organism: "hero-carousel";
+
+.#{$organism} {
+  @include e("base") {
+    padding: 0 ($gutter * 3);
+    margin: 80px;
+    background-color: transparent;
+  }
+
+  @include e("list") {
+    max-height: calc(100vh - 160px);
+
+    &.uk-grid {
+      margin-left: -($gutter * 3);
+
+      &>* {
+        padding-left: $gutter * 3;
+      }
+    }
+  }
+
+  @include e("control") {
+    color: $c-white;
+
+    &.uk-position-center-right {
+      right: 3%;
+    }
+
+    &.uk-position-center-left {
+      left: 3%;
+    }
+
+    &.uk-slidenav {
+      &:hover {
+        color: $c-white;
+      }
+    }
+
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    polyline {
+      stroke-width: 5px;
+    }
+  }
+}
