@@ -2,11 +2,7 @@ $organism: "carousel";
 
 .#{$organism} {
 
-  &__base,
-  &__list,
-  &__item,
-  &__slide,
-  &__image {
+  @include e("base", "list", "item", "slide", "image") {
     width: 100%;
     height: 100%;
   }
@@ -15,11 +11,11 @@ $organism: "carousel";
     height: 100vh;
   }
 
-  &__image {
+  @include e("image") {
     object-fit: cover;
   }
 
-  &__control {
+  @include e("control") {
     color: $c-white;
 
     &.uk-slidenav {
