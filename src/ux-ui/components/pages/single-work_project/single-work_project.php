@@ -2,6 +2,7 @@
     themeFiles('/single-work_project/', true);
 ?>
 
+<main class="main__base">
 <?php
   while(have_posts()) {
     the_post(); ?>
@@ -39,9 +40,11 @@
     </div>
       <h2><?php the_title(); ?></h2>
 
-    <div class="project-description"></div>
+    <div class="project-description">
       <?php the_content();?>
+    </div>
 
 <?php }?>
+</main>
 
 <?php get_footer(); ?>

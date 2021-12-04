@@ -1,6 +1,6 @@
 <?php get_header();
 themeFiles('/front-page/', true);?>
-<main class="main__base" data-js-component="main" data-js-page="front-page">
+<main class="main__base" data-js-component="main">
   <div class="carousel__base uk-position-relative uk-visible-toggle" data-js-component="carousel" tabindex="-1" uk-slideshow="animation: fade; ratio: false;">
     <ul class="carousel__list uk-slideshow-items">
       <?php
@@ -17,8 +17,7 @@ themeFiles('/front-page/', true);?>
               <?php the_post_thumbnail('full', 
                                         array( 'class' => 'carousel__image',
                                                 'uk-img' => 'target: !* -*, !* +*',
-                                                'uk-cover' => '',
-                                                'uk-img' => ''
+                                                'uk-cover' => ''
                                               )); ?>
             </a>
           </li>

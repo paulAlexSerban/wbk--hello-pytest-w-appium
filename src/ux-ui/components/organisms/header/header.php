@@ -3,7 +3,11 @@
 
   if(is_front_page()) {
     $pageType = 'front-page';
-  } 
+  } else if(is_post_type_archive('work_project')) {
+    $pageType = 'archive-work_project-page';
+  } else if(get_post_type() == 'work_project') {
+    $pageType = 'single-work_project-page';
+  }
 ?>
 
 <!DOCTYPE html>
