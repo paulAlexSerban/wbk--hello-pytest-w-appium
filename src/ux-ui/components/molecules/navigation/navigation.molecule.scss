@@ -80,7 +80,7 @@ $molecule: "navigation";
 
   @include e("list") {
     display: none !important;
-    padding: 0 ($gutter * 2);
+    padding: 0 ($gutter * 2) !important;
 
     @include respond(min-tab-port) {
       display: flex !important;
