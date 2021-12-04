@@ -2,8 +2,6 @@ $organism: "hero-carousel";
 
 .#{$organism} {
   @include e("base") {
-    padding: 0 ($gutter * 3);
-    margin: 80px;
     background-color: transparent;
   }
 

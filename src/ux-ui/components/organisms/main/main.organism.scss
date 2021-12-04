@@ -1,7 +1,12 @@
 $organism: "main";
 
 .#{$organism} {
-  &__base {
-    height: 100vh;
+  @include e("base") {
+    min-height: 100vh;
+
+    body:not([data-js-page="front-page"]) & {
+      padding: 0 ($gutter * 3);
+      margin-top: 80px;
+    }
   }
 }
