@@ -1,1 +1,37 @@
+// Typography rules
+h1 {
+  font-size: 3.5rem;
+  line-height: 3.8rem;
+
+  @include respond(min-tab-port) {
+    font-size: 4rem;
+    line-height: 4.3rem;
+  }
+
+  @include respond(min-desktop) {
+    font-size: 4.3rem;
+    line-height: 4.6rem;
+  }
+}
+
+h2 {
+  font-size: 3.2rem;
+  line-height: 3.5rem;
+
+  @include respond(min-tab-port) {
+    font-size: 3.5rem;
+    line-height: 3.8rem;
+  }
+
+  @include respond(min-desktop) {
+    font-size: 3.8rem;
+    line-height: 4rem;
+  }
+}
+
+p {
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+}
+
 // TO DO - get code from FreeCodeCamp - Responsive Web Design

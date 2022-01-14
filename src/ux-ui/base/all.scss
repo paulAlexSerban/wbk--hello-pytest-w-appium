@@ -1,8 +1,8 @@
 @import "../abstracts/all.scss";
 
 // Import reset properties
-@import './reset/font-size.scss';
 @import "./reset/reset.scss";
+@import './reset/font-size.scss';
 
 // Import typography styles
 @import './typography.scss';
