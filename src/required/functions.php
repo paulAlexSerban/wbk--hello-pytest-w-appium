@@ -49,4 +49,10 @@ add_filter('upload_mimes', 'add_file_types_to_uploads');
  * 3. check if the key ends in `.css` using a regular expression
  */
 
+function load_fonts() {
+  wp_enqueue_style('font-avenir-black', 'fonts/AvenirLTStd-Black.woff2');
+}
+
+add_action('wp_enqueue_scripts', 'load_fonts');
+
 ?>
