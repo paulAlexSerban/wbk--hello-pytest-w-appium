@@ -11,6 +11,12 @@ function copy-backed-up-assets-src-to-build () {
   echo -e "${BLUE} --> [ --- DONE --- COPY ] uploads ${NC} "
 }
 
+function install-fonts () {
+  echo -e "${BLUE} --> [ --- START --- COPY ] fonts ${GREEN} "
+  rsync -rv --mkpath $ASSETS_DIR/fonts $WORDPRESS_THEME_TARGET --info=progress2
+  echo -e "${BLUE} --> [ --- DONE --- COPY ] fonts ${NC} "
+}
+
 function install () {
   echo -e "${BLUE} --> [ --- START --- INSTALL ASSETS ] uploads/assets ${GREEN}"
   copy-backed-up-assets-src-to-build
