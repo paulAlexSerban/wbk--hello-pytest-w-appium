@@ -1,0 +1,10 @@
+$helper: "layout_container";
+
+.#{$helper} {
+  @include flex($direction: column);
+
+  width: 100%;
+  max-width: 1600px;
+  padding: 0 $gutter;
+  margin-top: $baseline * 2;
+}

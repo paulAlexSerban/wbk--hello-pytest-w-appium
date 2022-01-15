@@ -20,11 +20,12 @@
               $img_srcset = wp_get_attachment_image_srcset( $gallery['image_id'][$i]);
               $img_sizes = wp_get_attachment_image_sizes($gallery['image_id'][$i], 'full');?>
 
-              <li class="hero-carousel__item">
+              <li class="hero-carousel__item" uk-height-match>
                 <div class="uk-panel">
-                  <img  src="<?php echo esc_url( $img_src ); ?>"
-                          srcset="<?php echo esc_attr( $img_srcset ); ?>"
-                          sizes="<?php echo esc_attr( $img_sizes ); ?>">
+                  <img  class="hero-carousel__image"
+                        src="<?php echo esc_url( $img_src ); ?>"
+                        srcset="<?php echo esc_attr( $img_srcset ); ?>"
+                        sizes="<?php echo esc_attr( $img_sizes ); ?>">
                 </div>
               </li>
 
@@ -38,11 +39,19 @@
       <a class="hero-carousel__control uk-position-center-right uk-position-small uk-hidden-hover" href="#"
         uk-slidenav-next uk-slider-item="next"></a>
     </div>
-      <h2><?php the_title(); ?></h2>
 
-    <div class="project-description">
-      <?php the_content();?>
+    <div class="spacer__m"></div>
+
+    <div class="layout_container">
+      <div class="title__base">
+        <h2><?php the_title(); ?></h2>
+      <div/>
+
+      <div class="text__base">
+        <?php the_content();?>
+      </div>
     </div>
+
 
 <?php }?>
 </main>

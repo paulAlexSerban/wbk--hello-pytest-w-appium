@@ -35,7 +35,7 @@ $molecule: "navigation";
     }
   }
 
-  @include e("toggle-line-1", "toggle-line-2", "toggle-line-3" ) {
+  @include e("toggle-line-1", "toggle-line-2", "toggle-line-3") {
     @include relative();
 
     display: block;
@@ -47,7 +47,7 @@ $molecule: "navigation";
     transition: all .3s;
   }
 
-  @include e("toggle-line-2", "toggle-line-3" ) {
+  @include e("toggle-line-2", "toggle-line-3") {
     margin-top: 8px;
   }
 
@@ -60,14 +60,14 @@ $molecule: "navigation";
     }
   }
 
-  @include e("toggle-line-2")  {
+  @include e("toggle-line-2") {
     body.uk-offcanvas-container & {
       transform: rotate(45deg);
     }
   }
 
-  @include e("toggle-line-3")  {
-    body.uk-offcanvas-container &  {
+  @include e("toggle-line-3") {
+    body.uk-offcanvas-container & {
       @include relative($top: -10px);
 
       transform: rotate(-45deg);
@@ -84,40 +84,28 @@ $molecule: "navigation";
   }
 
   @include e("item") {
-    &:hover {
-      a {
-        color: rgba($c-white, .65) !important;
-      }
-    }
-
     a {
       padding: 0 $gutter !important;
 
       &,
       &:link,
       &:visited,
-      &:hover,
       &:active,
       &:focus {
-        font-weight: 400;
+        font-size: 2.8rem;
+        font-weight: 700;
         color: $c-white;
+        text-decoration: none;
         text-transform: lowercase;
 
         body:not([data-js-page="front-page"]) & {
-          color: $c-black;
+          color: $c-davys-grey;
         }
       }
 
-      &,
-      &:link,
-      &:visited {
-        font-size: 3rem;
-        text-decoration: none;
-      }
-
       &:hover {
-        .#{$molecule}__base .#{$molecule}__list {
-          color: $c-white;
+        body:not([data-js-page="front-page"]) & {
+          color: $c-black;
         }
       }
     }

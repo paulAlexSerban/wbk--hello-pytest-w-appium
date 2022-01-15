@@ -2,6 +2,8 @@ $organism: "main";
 
 .#{$organism} {
   @include e("base") {
+    @include flex($direction: column, $main: flex-start);
+
     min-height: 100vh;
 
     body:not([data-js-page="front-page"]) & {

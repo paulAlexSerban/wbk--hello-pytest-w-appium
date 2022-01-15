@@ -2,6 +2,7 @@ $organism: "hero-carousel";
 
 .#{$organism} {
   @include e("base") {
+    max-width: 1600px;
     background-color: transparent;
   }
 
@@ -15,6 +16,11 @@ $organism: "hero-carousel";
         padding-left: $gutter * 3;
       }
     }
+  }
+
+  @include e("item") {
+    @include flex();
+    width: 100%;
   }
 
   @include e("control") {

@@ -1,5 +1,13 @@
 @import "../../../abstracts/all.scss";
 
+// helpers
+@import "../../helpers/layout_container/layout_container.helper.scss";
+@import "../../helpers/spacer/spacer.helper.scss";
+
+// atoms
+@import "../../atoms/title/title.atom.scss";
+@import "../../atoms/text/text.atom.scss";
+
 // molecules
 @import "../../molecules/navigation/navigation.molecule.scss";
 
