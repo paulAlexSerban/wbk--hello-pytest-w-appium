@@ -56,6 +56,33 @@ function install-src-to-build () {
   copy_includes-src-to-build
 }
 
+function backup-uploads () {
+  echo -e "${BLUE} --> [ --- START --- BACKUP ASSETS ] uploads/assets ${GREEN}"
+  rsync -rv --mkpath $WORDPRESS_WP_CONTENT/uploads $ASSETS_DIR --info=progress2
+  echo -e "${BLUE} --> [ --- DONE --- BACKUP ASSETS ] uploads/assets ${NC}"
+}
+
+function generate_database () {
+	echo -e "${BLUE} --> [ -- START -- GENERATE NEW DATABASE MAIN_BACKUP ] ${GREEN} "
+  docker exec ${COMPOSE_PROJECT_NAME}_mysql /usr/bin/mysqldump -u root --password=${DATABASE_PASSWORD} ${COMPOSE_PROJECT_NAME} > $MAIN_BACKUP_FILE
+	echo -e "${BLUE} --> [ -- DONE -- GENERATE NEW DATABASE MAIN_BACKUP ] ${GREEN} "
+}
+
+MAIN_BACKUP_FILE=$DATABASE_DIR/main/main.backup.sql
+function save-fail-safe-bkp () {
+		echo -e "${BLUE} --> [ -- START -- save-fail-safe-bkp ] ${GREEN} "
+    echo " - creaticg Database fail-safe-backup "
+  	if [ -f $MAIN_BACKUP_FILE ]; then 
+		rsync -rv --mkpath $ROOT_DIR/../assets/database/main/main.backup.sql $ROOT_DIR/../assets/database/backup/saved.elvirtuoso.backup.`date +%Y-%m-%d---%T`.sql --info=progress2; 
+		echo -e "${BLUE} --> [ -- SAVED -- save-fail-safe-bkp ] ${GREEN} "
+	else 
+		echo -e "${BLUE} --> [ -- NO DATABASE TO SAVE -- save-fail-safe-bkp ] ${GREEN} "
+	fi \
+}
+
+
+
+
 function install () {
   pre-install
   install-src-to-build
@@ -63,6 +90,15 @@ function install () {
 }
 
 function uninstall () {
+  echo -e "${BLUE} --> [ -- START -- DATABASE UNINSTALL ] ${GREEN} "
+	save-fail-safe-bkp
+	generate_database
+	echo -e "${BLUE} --> [ -- DONE -- DATABASE UNINSTALL ] ${GREEN} "
+
+  echo -e "${BLUE} --> [ --- START --- UNINSTALL ASSETS] uploads/assets ${GREEN}"
+  backup-uploads
+  echo -e "${BLUE} --> [ --- DONE --- UNINSTALL ASSETS] uploads/assets ${GREEN}"
+
   echo " - backup updated plugins from ./build to ./src"
   rsync -rv --mkpath $WORDPRESS_PLUGINS/* $SRC_VENDOR_PLUGINS --info=progress2
 }
@@ -114,6 +150,10 @@ function watch-dev () {
   watch-required-files & watch-dist-assets & watch-components & watch-mu-plugin
 }
 
+function test () {
+  ls -la $ROOT_DIR/../assets
+}
+
 $1
 
 
@@ -161,3 +201,4 @@ $1
 # 		copy_src_files
 # 	fi \
 # }
+
