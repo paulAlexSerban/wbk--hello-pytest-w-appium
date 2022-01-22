@@ -22,7 +22,7 @@
     <div class="header__container">
       <div class="navigation__base" data-js-component="navigation">
         <a class="logo__base" href="./index.html">
-          <i class="logo__icon icon" uk-icon="uikit"></i>
+          <img class="logo__image" src="<?php site_icon_url(); ?>" alt="AAIM Logo">
         </a>
         <nav class="navigation__container uk-navbar-container" uk-navbar>
           <div class="navigation__wrapper uk-navbar-right">
@@ -72,7 +72,8 @@
                   </li>
                   <li class="uk-nav-divider"></li>
                 </ul> -->
-                <div class="footer__social">
+
+                <!-- <div class="footer__social">
                   <ul class="footer__social-list">
                     <li class="footer__social-icon">
                       <i class="logo__icon icon" data-svg="facebook"></i>
@@ -84,9 +85,7 @@
                       <i class="logo__icon icon" data-svg="linkedin"></i>
                     </li>
                   </ul>
-                </div>
-
-        
+                </div> -->
 
               </div>
             </div>

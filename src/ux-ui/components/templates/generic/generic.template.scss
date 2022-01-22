@@ -1,5 +1,8 @@
 @import "../../../abstracts/all.scss";
 
+// atoms
+@import "../../atoms/logo/logo.atom.scss";
+
 // molecules
 @import "../../molecules/navigation/navigation.molecule.scss";
 @import "../../molecules/card/card.molecule.scss";

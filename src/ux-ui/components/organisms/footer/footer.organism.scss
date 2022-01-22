@@ -2,6 +2,9 @@ $organism: "footer";
 
 .#{$organism} {
   &__base {
+    @include flex($direction: column);
+
+    padding-bottom: $gutter * 2;
     border: transparent;
   }
 }

@@ -1,0 +1,12 @@
+$atom: "logo";
+
+.#{$atom} {
+  @include e("base") {
+    width: 100%;
+    padding-left: $gutter * 3;
+  }
+
+  @include e("image") {
+    height: 6rem;
+  }
+}
