@@ -2,9 +2,10 @@ $organism: "header";
 
 .#{$organism} {
   @include e("base") {
-    @include absolute($top: 0, $left: 0);
+    @include absolute($top: 0, $left: $gutter * 3);
+    @include flex($direction: row);
 
-    width: 100vw;
+    width: calc(100% - (#{$gutter} * 6));
   }
 
   @include e("container", "carousel") {
@@ -13,5 +14,6 @@ $organism: "header";
 
   @include e("container") {
     @include relative();
+    @include flex($cross: normal);
   }
 }

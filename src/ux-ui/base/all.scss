@@ -22,4 +22,8 @@ body {
   > * {
     width: 100%;
   }
+
+  &:not([data-js-page="front-page"]) {
+    padding: 0 ($gutter * 3);
+  }
 }

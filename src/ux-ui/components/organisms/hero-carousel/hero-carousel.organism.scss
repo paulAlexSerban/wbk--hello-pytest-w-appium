@@ -20,7 +20,17 @@ $organism: "hero-carousel";
 
   @include e("item") {
     @include flex();
+
     width: 100%;
+
+    .uk-panel {
+      height: 100%;
+    }
+  }
+
+  @include e("image") {
+    object-fit: cover;
+    height: 100%;
   }
 
   @include e("control") {

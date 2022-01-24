@@ -1,10 +1,13 @@
 $organism: "footer";
 
 .#{$organism} {
-  &__base {
+  @include e("base") {
     @include flex($direction: column);
 
-    padding-bottom: $gutter * 2;
     border: transparent;
+
+    @include m("is-visible") {
+      padding-bottom: $gutter * 2;
+    }
   }
 }

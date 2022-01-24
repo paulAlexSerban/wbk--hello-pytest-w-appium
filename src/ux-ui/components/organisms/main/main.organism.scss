@@ -5,7 +5,7 @@ $organism: "main";
     @include flex($direction: column, $main: flex-start);
 
     body:not([data-js-page="front-page"]) & {
-      padding: 0 ($gutter * 3);
+      max-width: 1600px;
       margin-top: 80px;
     }
   }

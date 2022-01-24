@@ -7,6 +7,10 @@ $molecule: "navigation";
     width: 100%;
     margin-left: 0;
 
+    body:not([data-js-page="front-page"]) & {
+      max-width: 1600px;
+    }
+
     .header__base & {
       @include absolute($z-index: navigation);
     }
@@ -18,8 +22,8 @@ $molecule: "navigation";
 
   @include e("toggle") {
     display: block;
-    padding: 2rem;
-    color: #fff;
+    padding: ($gutter * 2) 0 ($gutter * 3);
+    color: $c-davys-grey;
     cursor: pointer;
     border-radius: 50%;
     outline: none;
@@ -41,7 +45,7 @@ $molecule: "navigation";
     display: block;
     width: 3rem;
     height: 3px;
-    background-color: #fff;
+    background-color: $c-davys-grey;
     border-radius: 15%;
     opacity: 100%;
     transition: all .3s;
@@ -76,7 +80,6 @@ $molecule: "navigation";
 
   @include e("list") {
     display: none !important;
-    padding: 0 ($gutter * 2) !important;
 
     @include respond(min-tab-port) {
       display: flex !important;
@@ -85,7 +88,7 @@ $molecule: "navigation";
 
   @include e("item") {
     a {
-      padding: 0 $gutter !important;
+      padding: 0 0 0 $gutter !important;
 
       &,
       &:link,
@@ -107,6 +110,12 @@ $molecule: "navigation";
         body:not([data-js-page="front-page"]) & {
           color: $c-black;
         }
+      }
+    }
+
+    &:not(:last-child) {
+      a {
+        padding-right: $gutter !important;
       }
     }
   }

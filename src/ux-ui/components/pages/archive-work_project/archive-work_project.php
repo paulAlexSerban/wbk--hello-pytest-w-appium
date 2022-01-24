@@ -8,11 +8,11 @@ $projects = new WP_Query(array(
 <?php get_header();
       themeFiles('/archive-work_project/', true);?>
 <main class="main__base">
-  <div class="uk-child-width-expand@s uk-text-center" uk-grid>
+  <div class="uk-text-center uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@l" uk-grid>
     <?php 
     while($projects->have_posts()) {
       $projects->the_post(); ?>
-        <div class="card__base">
+        <a class="card__base" href="<?php the_permalink(); ?>">
           <?php 
             the_post_thumbnail(
               'large',
@@ -22,7 +22,7 @@ $projects = new WP_Query(array(
               )
             ); 
           ?>
-        </div>
+        </a>
     <?php } ?>
   </div>
 </main>

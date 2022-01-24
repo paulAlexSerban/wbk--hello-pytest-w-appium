@@ -1,5 +1,5 @@
 <?php wp_footer(); ?>
-<footer class="footer__base" data-js-component="footer">
+<footer class="footer__base <?php if(!is_front_page()) { ?> footer__base--is-visible <?php }?>" data-js-component="footer">
   <?php 
     if(!is_front_page()) { ?>
       <div>
