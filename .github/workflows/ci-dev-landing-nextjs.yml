@@ -1,0 +1,91 @@
+---
+name: CI Develop
+
+on:
+  pull_request:
+    branches: [develop, release]
+  push:
+    branches: [develop, release]
+
+jobs:
+  build:
+    name: DEV Merge Pull Request
+    runs-on: ubuntu-latest
+    steps:
+      - name: "📥 checkout repository"
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: "🔍  Verify Changes in Files"
+        uses: tj-actions/changed-files@v23.1
+        id: changed-files
+        with:
+          files: |
+            frontend/landing-nextjs/**/*
+
+      - name: "List all changed files"
+        run: |
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            echo "$file was changed"
+          done
+
+      # - name: "Get npm cache directory"
+      #   if: steps.changed-files.outputs.any_changed == 'true'
+      #   id: npm-cache-dir
+      #   run: |
+      #     echo "::set-output name=dir::$(npm config get cache)"
+
+      # - name: "Cache npm modules"
+      #   if: steps.changed-files.outputs.any_changed == 'true'
+      #   uses: actions/cache@v3
+      #   id: npm-cache # use this to check for `cache-hit` ==> if: steps.npm-cache.outputs.cache-hit != 'true'
+      #   with:
+      #     path: ${{ steps.npm-cache-dir.outputs.dir }}
+      #     key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-node-
+
+      # - name: "🔧 Setup NodeJS 14.20.1"
+      #   if: steps.changed-files.outputs.any_changed == 'true'
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: 14.20.1
+
+      # - name: "🔧 Install latest NPM"
+      #   if: steps.changed-files.outputs.any_changed == 'true'
+      #   run: npm i -g npm@latest
+
+      # - name: "📦  Install CI deps"
+      #   if: steps.changed-files.outputs.any_changed == 'true'
+      #   run: npm run install:ci
+
+      # - name: "📦  Install Landing deps"
+      #   if: steps.changed-files.outputs.any_changed == 'true'
+      #   run: bash scripts/backend/landing/install-ci.bash
+
+      # - name: "Check Project"
+      #   if: steps.changed-files.outputs.any_changed == 'true'
+      #   run: |
+      #     npm run formats:check
+      #     npm run test
+      #   env:
+      #     CI: true
+
+      # - name: "Upload Test Coverage"
+      #   if: steps.changed-files.outputs.any_changed == 'true'
+      #   uses: actions/upload-artifact@v1
+      #   with:
+      #     name: code-coverage
+      #     path: backend/landing/coverage/
+
+      # - name: "🏗️ Build Project"
+      #   if: github.event_name == 'push' && steps.changed-files.outputs.any_changed == 'true'
+      #   run: bash scripts/backend/landing/build.bash
+
+      # - name: "Upload Build Folder"
+      #   if: github.event_name == 'push' && steps.changed-files.outputs.any_changed == 'true'
+      #   uses: actions/upload-artifact@v1
+      #   with:
+      #     name: build
+      #     path: backend/landing/out/
