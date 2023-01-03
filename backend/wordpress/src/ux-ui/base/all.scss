@@ -2,13 +2,13 @@
 
 // Import reset properties
 @import "./reset/reset.scss";
-@import './reset/font-size.scss';
+@import "./reset/font-size.scss";
 
 // Import typography styles
-@import './typography.scss';
+@import "./typography.scss";
 
 // Import utility classes
-@import './utilities.scss';
+@import "./utilities.scss";
 
 body {
   @include flex($direction: column, $main: space-between);

@@ -75,7 +75,7 @@ As a result, the `ContainerInterface` contains two methods:
 
 While `ContainerInterface` only defines one mandatory parameter in `get()`, it is not incompatible with
 existing containers that have additional optional parameters. PHP allows an implementation to offer more parameters
-as long as they are optional, because the implementation *does* satisfy the interface.
+as long as they are optional, because the implementation _does_ satisfy the interface.
 
 This issue has been discussed in [issue #6](https://github.com/container-interop/container-interop/issues/6).
 

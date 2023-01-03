@@ -1,5 +1,5 @@
-import './single-work_project.page.scss';
-import ProjectTemplate from '../../templates/project/project.template';
+import "./single-work_project.page.scss";
+import ProjectTemplate from "../../templates/project/project.template";
 
 class SingleWorkProjectPage {
   constructor(page) {
@@ -20,4 +20,6 @@ class SingleWorkProjectPage {
   }
 }
 
-document.querySelectorAll('[data-js-page="single-work_project-page"]').forEach((page) => new SingleWorkProjectPage(page));
+document
+  .querySelectorAll('[data-js-page="single-work_project-page"]')
+  .forEach((page) => new SingleWorkProjectPage(page));

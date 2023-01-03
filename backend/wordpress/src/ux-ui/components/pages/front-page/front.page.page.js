@@ -1,5 +1,5 @@
-import './front-page.page.scss';
-import HomeTemplate from '../../templates/home/home.template';
+import "./front-page.page.scss";
+import HomeTemplate from "../../templates/home/home.template";
 
 class FrontPage {
   constructor(page) {
@@ -20,4 +20,6 @@ class FrontPage {
   }
 }
 
-document.querySelectorAll('[data-js-page="front-page"]').forEach((page) => new FrontPage(page));
+document
+  .querySelectorAll('[data-js-page="front-page"]')
+  .forEach((page) => new FrontPage(page));

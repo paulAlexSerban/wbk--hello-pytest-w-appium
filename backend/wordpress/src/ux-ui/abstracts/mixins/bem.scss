@@ -3,7 +3,7 @@
 /// @param {String} $element - Element's name
 @mixin element($element) {
   &__#{$element} {
-      @content;
+    @content;
   }
 }
 
@@ -12,14 +12,14 @@
 /// @param {String} $modifier - Modifier's name
 @mixin modifier($modifier) {
   &--#{$modifier} {
-      @content;
+    @content;
   }
 }
 
 /// @alias element
 @mixin e($elements...) {
   @each $element in $elements {
-    @include element($element)  {
+    @include element($element) {
       @content;
     }
   }

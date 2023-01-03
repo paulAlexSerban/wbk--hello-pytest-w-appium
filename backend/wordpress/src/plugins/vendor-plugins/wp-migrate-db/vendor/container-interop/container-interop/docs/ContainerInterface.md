@@ -1,10 +1,9 @@
-Container interface
-===================
+# Container interface
 
 This document describes a common interface for dependency injection containers.
 
 The goal set by `ContainerInterface` is to standardize how frameworks and libraries make use of a
-container to obtain objects and parameters (called *entries* in the rest of this document).
+container to obtain objects and parameters (called _entries_ in the rest of this document).
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
@@ -14,17 +13,18 @@ The word `implementor` in this document is to be interpreted as someone
 implementing the `ContainerInterface` in a dependency injection-related library or framework.
 Users of dependency injections containers (DIC) are referred to as `user`.
 
-[RFC 2119]: http://tools.ietf.org/html/rfc2119
+[rfc 2119]: http://tools.ietf.org/html/rfc2119
 
 1. Specification
------------------
+
+---
 
 ### 1.1 Basics
 
 - The `Interop\Container\ContainerInterface` exposes two methods : `get` and `has`.
 
 - `get` takes one mandatory parameter: an entry identifier. It MUST be a string.
-  A call to `get` can return anything (a *mixed* value), or throws an exception if the identifier
+  A call to `get` can return anything (a _mixed_ value), or throws an exception if the identifier
   is not known to the container. Two successive calls to `get` with the same
   identifier SHOULD return the same value. However, depending on the `implementor`
   design and/or `user` configuration, different values might be returned, so
@@ -52,7 +52,7 @@ required to implement these features to respect the ContainerInterface.
 
 #### 1.3.1 Delegate lookup feature
 
-The goal of the *delegate lookup* feature is to allow several containers to share entries.
+The goal of the _delegate lookup_ feature is to allow several containers to share entries.
 Containers implementing this feature can perform dependency lookups in other containers.
 
 Containers implementing this feature will offer a greater lever of interoperability
@@ -72,7 +72,7 @@ When a container is configured to use a delegate container for dependencies:
 - Calls to the `has` method should only return `true` if the entry is part of the container.
   If the entry is not part of the container, `false` should be returned.
 - If the fetched entry has dependencies, **instead** of performing
-  the dependency lookup in the container, the lookup is performed on the *delegate container*.
+  the dependency lookup in the container, the lookup is performed on the _delegate container_.
 
 Important! By default, the lookup SHOULD be performed on the delegate container **only**, not on the container itself.
 
@@ -80,13 +80,15 @@ It is however allowed for containers to provide exception cases for special entr
 into the same container (or another container) instead of the delegate container.
 
 2. Package
-----------
+
+---
 
 The interfaces and classes described as well as relevant exception are provided as part of the
 [container-interop/container-interop](https://packagist.org/packages/container-interop/container-interop) package.
 
 3. `Interop\Container\ContainerInterface`
------------------------------------------
+
+---
 
 ```php
 <?php
@@ -128,7 +130,8 @@ interface ContainerInterface
 ```
 
 4. `Interop\Container\Exception\ContainerException`
----------------------------------------------------
+
+---
 
 ```php
 <?php
@@ -143,7 +146,8 @@ interface ContainerException
 ```
 
 5. `Interop\Container\Exception\NotFoundException`
----------------------------------------------------
+
+---
 
 ```php
 <?php

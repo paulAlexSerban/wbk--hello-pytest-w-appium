@@ -12,17 +12,26 @@ export const patterns = {
     ["ie", /Trident\/.+rv:([0-9]+)/],
   ],
   operatingSystem: [
-    ["ios", /([0-9_]+) like Mac OS X/, (e) => {
+    [
+      "ios",
+      /([0-9_]+) like Mac OS X/,
+      (e) => {
         return e.replace("_", ".").replace("_", "");
       },
     ],
-    ["ios", /CPU like Mac OS X/, (e) => {
+    [
+      "ios",
+      /CPU like Mac OS X/,
+      (e) => {
         return 0;
       },
     ],
     ["wp", /Windows Phone ([0-9\.]+)/, null],
     ["android", /Android ([0-9\.]+)/, null],
-    ["mac", /Macintosh.+Mac OS X ([0-9_]+)/, (e) => {
+    [
+      "mac",
+      /Macintosh.+Mac OS X ([0-9_]+)/,
+      (e) => {
         return e.replace("_", ".").replace("_", "");
       },
     ],
@@ -32,5 +41,5 @@ export const patterns = {
     ["linux", /Linux/, null],
     ["bsd", /BSD/, null],
     ["unix", /X11/, null],
-  ]
+  ],
 };

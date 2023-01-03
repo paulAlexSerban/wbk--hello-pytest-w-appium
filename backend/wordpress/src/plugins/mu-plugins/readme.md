@@ -1,4 +1,4 @@
-these files will gte automatically loaded  and won't get deactivated by mistake
+these files will gte automatically loaded and won't get deactivated by mistake
 
 add this in your templates to use the components
 

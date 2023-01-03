@@ -46,9 +46,13 @@ You get the point. These frameworks invoke the controller/command/handler using 
 Anyone familiar with AngularJS is familiar with how dependency injection is performed:
 
 ```js
-angular.controller('MyController', ['dep1', 'dep2', function(dep1, dep2) {
+angular.controller("MyController", [
+  "dep1",
+  "dep2",
+  function (dep1, dep2) {
     // ...
-}]);
+  },
+]);
 ```
 
 In PHP we find this pattern again in some frameworks and DI containers with partial to full support. For example in Silex you can type-hint the application to get it injected, but it only works with `Silex\Application`:
@@ -124,9 +128,9 @@ $invoker->call(['MyClass', 'myStaticMethod']);
 $invoker->call('MyClass::myStaticMethod');
 ```
 
-Dependency injection in parameters is supported but needs to be configured with your container. Read on or jump to [*Built-in support for dependency injection*](#built-in-support-for-dependency-injection) if you are impatient.
+Dependency injection in parameters is supported but needs to be configured with your container. Read on or jump to [_Built-in support for dependency injection_](#built-in-support-for-dependency-injection) if you are impatient.
 
-Additionally, callables can also be resolved from your container. Read on or jump to [*Resolving callables from a container*](#resolving-callables-from-a-container) if you are impatient.
+Additionally, callables can also be resolved from your container. Read on or jump to [_Resolving callables from a container_](#resolving-callables-from-a-container) if you are impatient.
 
 ### Parameter resolvers
 
@@ -140,29 +144,29 @@ Rather than have you re-implement support for dependency injection with differen
 
 - [`TypeHintContainerResolver`](https://github.com/PHP-DI/Invoker/blob/master/src/ParameterResolver/Container/TypeHintContainerResolver.php)
 
-    This resolver will inject container entries by searching for the class name using the type-hint:
+  This resolver will inject container entries by searching for the class name using the type-hint:
 
-    ```php
-    $invoker->call(function (Psr\Logger\LoggerInterface $logger) {
-        // ...
-    });
-    ```
+  ```php
+  $invoker->call(function (Psr\Logger\LoggerInterface $logger) {
+      // ...
+  });
+  ```
 
-    In this example it will `->get('Psr\Logger\LoggerInterface')` from the container and inject it.
+  In this example it will `->get('Psr\Logger\LoggerInterface')` from the container and inject it.
 
-    This resolver is only useful if you store objects in your container using the class (or interface) name. Silex or Symfony for example store services under a custom name (e.g. `twig`, `db`, etc.) instead of the class name: in that case use the resolver shown below.
+  This resolver is only useful if you store objects in your container using the class (or interface) name. Silex or Symfony for example store services under a custom name (e.g. `twig`, `db`, etc.) instead of the class name: in that case use the resolver shown below.
 
 - [`ParameterNameContainerResolver`](https://github.com/PHP-DI/Invoker/blob/master/src/ParameterResolver/Container/ParameterNameContainerResolver.php)
 
-    This resolver will inject container entries by searching for the name of the parameter:
+  This resolver will inject container entries by searching for the name of the parameter:
 
-    ```php
-    $invoker->call(function ($twig) {
-        // ...
-    });
-    ```
+  ```php
+  $invoker->call(function ($twig) {
+      // ...
+  });
+  ```
 
-    In this example it will `->get('twig')` from the container and inject it.
+  In this example it will `->get('twig')` from the container and inject it.
 
 These resolvers can work with any dependency injection container compliant with [container-interop](https://github.com/container-interop/container-interop). If you container is not compliant you can use the [Acclimate](https://github.com/jeremeamia/acclimate-container) package.
 

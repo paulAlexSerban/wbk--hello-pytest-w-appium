@@ -1,9 +1,8 @@
-Delegate lookup feature
-=======================
+# Delegate lookup feature
 
 This document describes a standard for dependency injection containers.
 
-The goal set by the *delegate lookup* feature is to allow several containers to share entries.
+The goal set by the _delegate lookup_ feature is to allow several containers to share entries.
 Containers implementing this feature can perform dependency lookups in other containers.
 
 Containers implementing this feature will offer a greater lever of interoperability
@@ -17,23 +16,25 @@ The word `implementor` in this document is to be interpreted as someone
 implementing the delegate lookup feature in a dependency injection-related library or framework.
 Users of dependency injections containers (DIC) are referred to as `user`.
 
-[RFC 2119]: http://tools.ietf.org/html/rfc2119
+[rfc 2119]: http://tools.ietf.org/html/rfc2119
 
 1. Vocabulary
--------------
+
+---
 
 In a dependency injection container, the container is used to fetch entries.
 Entries can have dependencies on other entries. Usually, these other entries are fetched by the container.
 
-The *delegate lookup* feature is the ability for a container to fetch dependencies in
+The _delegate lookup_ feature is the ability for a container to fetch dependencies in
 another container. In the rest of the document, the word "container" will reference the container
 implemented by the implementor. The word "delegate container" will reference the container we are
 fetching the dependencies from.
 
 2. Specification
-----------------
 
-A container implementing the *delegate lookup* feature:
+---
+
+A container implementing the _delegate lookup_ feature:
 
 - MUST implement the [`ContainerInterface`](ContainerInterface.md)
 - MUST provide a way to register a delegate container (using a constructor parameter, or a setter,
@@ -47,7 +48,7 @@ When a container is configured to use a delegate container for dependencies:
 - Calls to the `has` method should only return `true` if the entry is part of the container.
   If the entry is not part of the container, `false` should be returned.
 - If the fetched entry has dependencies, **instead** of performing
-  the dependency lookup in the container, the lookup is performed on the *delegate container*.
+  the dependency lookup in the container, the lookup is performed on the _delegate container_.
 
 Important: By default, the dependency lookups SHOULD be performed on the delegate container **only**, not on the container itself.
 
@@ -55,6 +56,7 @@ It is however allowed for containers to provide exception cases for special entr
 into the same container (or another container) instead of the delegate container.
 
 3. Package / Interface
-----------------------
+
+---
 
 This feature is not tied to any code, interface or package.

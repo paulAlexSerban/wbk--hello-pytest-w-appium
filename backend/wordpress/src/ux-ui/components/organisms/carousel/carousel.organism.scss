@@ -1,7 +1,6 @@
 $organism: "carousel";
 
 .#{$organism} {
-
   @include e("base", "list", "item", "slide", "image") {
     width: 100%;
     height: 100%;

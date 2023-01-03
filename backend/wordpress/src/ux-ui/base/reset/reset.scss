@@ -4,7 +4,7 @@
     Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
     - The "symbol *" part is to solve Firefox SVG sprite bug
  */
- *:where(:not(iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+*:where(:not(iframe, canvas, img, svg, video):not(svg *, symbol *)) {
   all: unset;
   display: revert;
   font-family: $text-font-stack !important;
@@ -29,7 +29,8 @@ html {
 }
 
 /* Remove list styles (bullets/numbers) */
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 

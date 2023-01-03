@@ -1,5 +1,5 @@
-import './archive-work_project.page.scss';
-import HomeTemplate from '../../templates/home/home.template';
+import "./archive-work_project.page.scss";
+import HomeTemplate from "../../templates/home/home.template";
 
 class ArchiveWorkProjectPage {
   constructor(page) {
@@ -21,4 +21,6 @@ class ArchiveWorkProjectPage {
   }
 }
 
-document.querySelectorAll('[data-js-page="archive-work_project-page"]').forEach((page) => new ArchiveWorkProjectPage(page));
+document
+  .querySelectorAll('[data-js-page="archive-work_project-page"]')
+  .forEach((page) => new ArchiveWorkProjectPage(page));

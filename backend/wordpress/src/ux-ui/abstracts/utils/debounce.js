@@ -3,12 +3,12 @@ export const debounce = (fn) => {
   let frame;
 
   return (...params) => {
-    if(frame) {
+    if (frame) {
       cancelAnimationFrame(frame);
     }
 
     frame = requestAnimationFrame(() => {
       fn(...params);
-    })
-  }
-}
+    });
+  };
+};

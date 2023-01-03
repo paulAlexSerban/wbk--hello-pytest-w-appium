@@ -27,8 +27,8 @@ $molecule: "navigation";
     cursor: pointer;
     border-radius: 50%;
     outline: none;
-    transition: all .3s;
-    transition: background-color .3s ease-in;
+    transition: all 0.3s;
+    transition: background-color 0.3s ease-in;
 
     &::selection {
       background-color: transparent;
@@ -48,7 +48,7 @@ $molecule: "navigation";
     background-color: $c-davys-grey;
     border-radius: 15%;
     opacity: 100%;
-    transition: all .3s;
+    transition: all 0.3s;
   }
 
   @include e("toggle-line-2", "toggle-line-3") {

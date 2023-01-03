@@ -14,4 +14,3 @@ image.php
 page-{slug}.php
 readme.md
 single-{post-type}.php
-

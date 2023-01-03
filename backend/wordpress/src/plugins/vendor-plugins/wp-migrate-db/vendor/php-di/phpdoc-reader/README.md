@@ -39,7 +39,7 @@ It supports namespaced class names with the same resolution rules as PHP:
 - fully qualified name (starting with `\`)
 - imported class name (eg. `use My\Cache\Backend;`)
 - relative class name (from the current namespace, like `SubNamespace\MyClass`)
-- aliased class name  (eg. `use My\Cache\Backend as FooBar;`)
+- aliased class name (eg. `use My\Cache\Backend as FooBar;`)
 
 Primitive types (`@var string`) are ignored (returns null), only valid class names are returned.
 

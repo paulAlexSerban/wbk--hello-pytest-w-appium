@@ -2,6 +2,6 @@
   &::-webkit-input-placeholder,
   &::-moz-placeholder,
   &:-ms-input-placeholder {
-    @content
+    @content;
   }
 }

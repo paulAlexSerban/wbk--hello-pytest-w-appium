@@ -11,7 +11,6 @@
 /// @param {String} $cross - align-item properties
 /// @param {String} $direction - flex-direction properties
 
-
 @mixin flex($main: center, $cross: center, $direction: row) {
   @include flex-direction($direction);
   display: flex;

@@ -1,10 +1,10 @@
-import './page.page.scss';
-import GenericTemplate from '../../templates/generic/generic.template';
+import "./page.page.scss";
+import GenericTemplate from "../../templates/generic/generic.template";
 
 class PagePage {
   constructor() {
     this.pageParams = {
-      pageTitle: 'default page',
+      pageTitle: "default page",
     };
     this.init();
   }

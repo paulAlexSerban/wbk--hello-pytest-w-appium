@@ -4,16 +4,15 @@
 
 PHP-DI is licensed under the MIT License.
 
-
 ## Set up
 
-* Check out the sources using git or download them
+- Check out the sources using git or download them
 
 ```bash
 $ git clone https://github.com/PHP-DI/PHP-DI.git
 ```
 
-* Install the libraries using composer:
+- Install the libraries using composer:
 
 ```bash
 $ curl -s http://getcomposer.org/installer | php
@@ -21,7 +20,6 @@ $ php composer.phar install
 ```
 
 If you are running Windows or are having trouble, read [the official documentation](http://getcomposer.org/doc/00-intro.md#installation).
-
 
 ## Run the tests
 
@@ -31,11 +29,9 @@ The tests are run with [PHPUnit](http://www.phpunit.de/manual/current/en/install
 $ phpunit
 ```
 
-
 ## Learning the internals
 
 Read the [How it works](doc/how-it-works.md) documentation.
-
 
 ## What to do?
 
@@ -43,7 +39,6 @@ Read the [How it works](doc/how-it-works.md) documentation.
 - Resolve issues: [issue list](https://github.com/PHP-DI/PHP-DI/issues)
 - Improve the documentation
 - …
-
 
 ## Coding style
 

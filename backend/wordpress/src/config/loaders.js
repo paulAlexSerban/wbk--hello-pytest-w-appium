@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const CSSLoader = {
   test: /\.(css|sass|scss)$/,
@@ -7,14 +7,14 @@ const CSSLoader = {
   use: [
     MiniCssExtractPlugin.loader,
     {
-      loader: 'css-loader',
+      loader: "css-loader",
       options: {
         importLoaders: 4,
         sourceMap: true,
       },
     },
     {
-      loader: 'sass-loader',
+      loader: "sass-loader",
       options: {
         sourceMap: true,
       },
@@ -26,9 +26,9 @@ const JSLoader = {
   test: /\.m?js$/,
   exclude: /(node_modules|bower_components)/,
   use: {
-    loader: 'babel-loader',
+    loader: "babel-loader",
     options: {
-      presets: ['@babel/preset-env'],
+      presets: ["@babel/preset-env"],
     },
   },
 };
