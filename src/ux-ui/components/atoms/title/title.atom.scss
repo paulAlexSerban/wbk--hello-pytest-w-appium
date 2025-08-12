@@ -1,8 +1,0 @@
-$atom: "title";
-
-.#{$atom} {
-  @include e("base") {
-    width: 100%;
-    margin-top: $baseline * 2;
-  }
-}

@@ -1,7 +1,0 @@
-@mixin inputPlaceholder() {
-  &::-webkit-input-placeholder,
-  &::-moz-placeholder,
-  &:-ms-input-placeholder {
-    @content
-  }
-}

@@ -1,1 +1,0 @@
-webpack compilation should only compile molecules, organisms, templates and page
